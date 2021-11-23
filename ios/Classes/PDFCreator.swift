@@ -13,7 +13,7 @@ class PDFCreator {
         renderer.addPrintFormatter(printFormatter, startingAtPageAt: 0)
         
         // assign paperRect and printableRect values
-        let page = CGRect(x: 0, y: 0, height: 595, width: 842) // A4, 72 dpi
+        let page = CGRect(x: 0, y: 0, width: 842, height: 595) // A4, 72 dpi
         renderer.setValue(page, forKey: "paperRect")
         renderer.setValue(page, forKey: "printableRect")
         
