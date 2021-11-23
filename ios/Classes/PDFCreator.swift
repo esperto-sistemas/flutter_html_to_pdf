@@ -13,14 +13,14 @@ class PDFCreator {
         renderer.addPrintFormatter(printFormatter, startingAtPageAt: 0)
         
         // assign paperRect and printableRect values
-        let page = CGRect(x: 0.0, y: 0.0, width: 595.2, height: 841.8)  // A4, 72 dpi
+        CGRect page = CGRectMake(x: 0.0, y: 0.0, width: 595.2, height: 841.8)  // A4, 72 dpi
         renderer.setValue(page, forKey: "paperRect")
         renderer.setValue(page, forKey: "printableRect")
         
         // create pdf context and draw each page
         let pdfData = NSMutableData()
         UIGraphicsBeginPDFContextToData(pdfData, CGRectMake(0, 0, 841.8, 595.2), nil)
-        
+
         for i in 0..<renderer.numberOfPages {
             UIGraphicsBeginPDFPage()
             renderer.drawPage(at: i, in: UIGraphicsGetPDFContextBounds())
